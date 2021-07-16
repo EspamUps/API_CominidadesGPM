@@ -132,7 +132,7 @@ namespace API.Models.Catalogos
             return _lista;
         }
 
-        public List<CuestionarioGenerico> ConsultarPreguntasRandom(int _idCuestionarioGenerico, int _idVersion, int _idComunidad)
+        public List<CuestionarioGenerico> ConsultarPreguntasRandom(int _idCuestionarioGenerico, int _idCabeceraVersionCuestionarioEncriptado, int _idComunidad)
         {
             List<CuestionarioGenerico> _lista = new List<CuestionarioGenerico>();
 
@@ -147,8 +147,27 @@ namespace API.Models.Catalogos
                     Descripcion = item.Descripcion,
                     Estado = item.Estado,
                     Utilizado = item.UtilizadoCuestionarioGenerico,
-                    listaPreguntas = new CatalogoPregunta().ConsultarPreguntaArbol(_idCuestionarioGenerico, _idVersion, _idComunidad)
+                    listaPreguntas = new CatalogoPregunta().ConsultarPreguntaArbol(_idCuestionarioGenerico, _idCabeceraVersionCuestionarioEncriptado, _idComunidad)
 
+                });
+            }
+            return _lista;
+        }
+        public List<CuestionarioGenerico> ConsultarPreguntasRandomCopia(int _idCuestionarioGenerico, int _idVersion, int _idComunidad)
+        {
+            List<CuestionarioGenerico> _lista = new List<CuestionarioGenerico>();
+            foreach (var item in db.Sp_CuestionarioGenericoConsultar().Where(c => c.IdCuestionarioGenerico == _idCuestionarioGenerico).ToList())
+            {
+
+                _lista.Add(new CuestionarioGenerico()
+                {
+                    IdCuestionarioGenerico = item.IdCuestionarioGenerico,
+                    IdCuestionarioGenericoEncriptado = _seguridad.Encriptar(item.IdCuestionarioGenerico.ToString()),
+                    Nombre = item.Nombre,
+                    Descripcion = item.Descripcion,
+                    Estado = item.Estado,
+                    Utilizado = item.UtilizadoCuestionarioGenerico,
+                    _listaPreguntas = new CatalogoPregunta().ConsultarPreguntaArbolCopia(_idCuestionarioGenerico, _idVersion, _idComunidad)
                 });
             }
             return _lista;
