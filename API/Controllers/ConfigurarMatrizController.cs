@@ -139,7 +139,7 @@ namespace API.Controllers
                 }
                 else
                 {
-                    _IdAsignarEncuestado = null;
+                    _IdAsignarEncuestado = Convert.ToString(0);
                 }
 
 

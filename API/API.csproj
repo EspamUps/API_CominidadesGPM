@@ -638,6 +638,9 @@
     <Compile Include="Conexion\Sp_VerEncuestaAsignadasNueva_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Conexion\Sp_VerEncuestaAsignadasNueva_Result1.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Conexion\Sp_VerPreguntaDependiente_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

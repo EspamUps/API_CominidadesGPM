@@ -19,6 +19,8 @@ namespace API.Models.Entidades
         public string nombreCanton { get; set; }
         public string nombreParroquia { get; set; }
         public string nombreComunidad { get; set; }
+        public string Version { get; set; }
+        public DateTime FechaCreacion { get; set; }
         public DateTime FechaInicioCuestionario { get; set; }
         public DateTime FechaFinCuestionario { get; set; }
         public DateTime PeriodoFechaInicioCuestionario { get; set; }
@@ -39,7 +41,9 @@ namespace API.Models.Entidades
                 DateTime PeriodoFechaFinCuestionario, 
                 DateTime FechaPublicacionCuestionario,
                 string IdVersionCuestionario,
-                int CuestionarioFinalizado
+                int CuestionarioFinalizado,
+                string Version,
+                DateTime FechaCreacion
             )
 
         {
@@ -58,6 +62,8 @@ namespace API.Models.Entidades
             this.FechaPublicacionCuestionario = FechaPublicacionCuestionario;
             this.IdVersionCuestionario = IdVersionCuestionario;
             this.CuestionarioFinalizado = CuestionarioFinalizado;
+            this.Version = Version;
+            this.FechaCreacion = FechaCreacion;
         }
 
     }

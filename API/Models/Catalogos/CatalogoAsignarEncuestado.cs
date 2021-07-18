@@ -42,7 +42,9 @@ namespace API.Models.Catalogos
                       item.PeriodoFinCuestionario,
                       item.FechaPublicacionCuestionario,
                       _seguridad.Encriptar(item.IdCabeceraVersionCuestionario.ToString()),
-                      Convert.ToInt32(item.CuestionarioFinalizado)
+                      Convert.ToInt32(item.CuestionarioFinalizado),
+                      Convert.ToString(item.Version),
+                      item.FechaCreacion
                 ));
             }
             return _lista;

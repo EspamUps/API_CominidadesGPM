@@ -805,15 +805,23 @@ namespace API.Controllers
                 }
                 else
                 {
-                    int _idusuariotecnico = int.Parse(_seguridad.DesEncriptar(idusuariotecnico));
-                    var objCatalogoAsignarEncuestado = _objCatalogoAsignarEncuestado.ConsultarAsignarEncuestadoPorId(_idusuariotecnico).Where(c => c.Estado == true).FirstOrDefault();
-                    if (objCatalogoAsignarEncuestado == null)
+                    if (idusuariotecnico != "null")
                     {
-                        _http = _objCatalogoRespuestasHTTP.consultar().Where(x => x.codigo == "400").FirstOrDefault();
-                        _http.mensaje = "El asignar encuestado no existe";
-                        return new { http = _http };
-                    }
+                        idusuariotecnico = _seguridad.DesEncriptar(idusuariotecnico);
+                        var objCatalogoAsignarEncuestado = _objCatalogoAsignarEncuestado.ConsultarAsignarEncuestadoPorId(int.Parse(idusuariotecnico)).Where(c => c.Estado == true).FirstOrDefault();
+                        if (objCatalogoAsignarEncuestado == null)
+                        {
+                            _http = _objCatalogoRespuestasHTTP.consultar().Where(x => x.codigo == "400").FirstOrDefault();
+                            _http.mensaje = "El asignar encuestado no existe";
+                            return new { http = _http };
+                        }
 
+                    }
+                    else
+                    {
+                        idusuariotecnico = Convert.ToString(0);
+                    }
+                   
                     int _idComponente = Convert.ToInt32(_seguridad.DesEncriptar(idcomponente));
                     var objComponente = _objComponente.ConsultarComponentePorId(_idComponente).Where(c => c.Estado == true).FirstOrDefault();
                     if (objComponente == null)
@@ -823,7 +831,7 @@ namespace API.Controllers
                         return new { http = _http };
                     }
 
-                    var _respuestas = _objCatalogoPregunta.preguntasPorCompenente(_idComponente, _idusuariotecnico).ToList();
+                    var _respuestas = _objCatalogoPregunta.preguntasPorCompenente(_idComponente, int.Parse(idusuariotecnico)).ToList();
                     if (_respuestas != null)
                     {
                         _http = _objCatalogoRespuestasHTTP.consultar().Where(x => x.codigo == "200").FirstOrDefault();

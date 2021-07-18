@@ -111,6 +111,7 @@ namespace API.Models.Catalogos
                     IdConfigurarMatriz = item.IdConfigurarMatriz,
                     IdConfigurarMatrizEncriptado = _seguridad.Encriptar(item.IdConfigurarMatriz.ToString()),
                     Estado = item.EstadoConfigurarMatriz,
+                    datoRespuestaMatriz = item.datos,
                     OpcionDosMatriz = new OpcionDosMatriz()
                     {
                         IdOpcionDosMatriz = item.IdOpcionDosMatriz,

@@ -514,6 +514,10 @@ namespace API.Models.Catalogos
                     IdPregunta = item.IdPregunta,
                     IdPreguntaEncriptado = _seguridad.Encriptar(item.IdPregunta.ToString()),
                     Descripcion = x + ". " + item.DescripcionPregunta,
+                    Componente=new Componente() {
+
+                        Descripcion=item.DescripcionComponente
+                    },
                     Estado = item.EstadoPregunta,
                     Obligatorio = item.ObligatorioPregunta,
                     Orden = item.OrdenPregunta,
