@@ -401,6 +401,9 @@
     <Compile Include="Conexion\Sp_ConfigurarMatrizConsultar_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Conexion\Sp_ConfigurarMatrizSeleccionRespuesta_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Conexion\Sp_ConsultarCaracterizacionPorComunidad_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -519,6 +522,12 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Conexion\Sp_ModuloConsultar_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Conexion\Sp_ObservacionesRespuestaMatrizSeleccion_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Conexion\Sp_ObservacionesRespuestaMatrizSeleccion_Result1.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Conexion\Sp_OpcionPreguntaSeleccionConsultar2_Result.cs">
@@ -799,6 +808,7 @@
     <Compile Include="Models\Entidades\DescripcionComponente.cs" />
     <Compile Include="Models\Entidades\LiderComunitario.cs" />
     <Compile Include="Models\Entidades\ModeloGenerico.cs" />
+    <Compile Include="Models\Entidades\ObservacionesMatriz.cs" />
     <Compile Include="Models\Entidades\OpcionDosCopia.cs" />
     <Compile Include="Models\Entidades\OpcionDosMatriz.cs" />
     <Compile Include="Models\Entidades\OpcionPreguntaSeleccion.cs" />
